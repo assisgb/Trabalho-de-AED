@@ -7,7 +7,7 @@ typedef struct produto_do_estoque{
 
 int product_id;
 char name[100];
-char category[60];
+char category[61];
 int quantity;
 double price;
 
