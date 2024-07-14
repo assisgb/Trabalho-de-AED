@@ -12,7 +12,7 @@ typedef struct produto_do_estoque {
 } product;
 
 product* criar_produto(int id, char *nome, char *categoria, double preco, int quantidade) {
-    product* novo = malloc(sizeof(product));
+    product* novo = (product*)malloc(sizeof(product));
     novo->product_id = id;
     strcpy(novo->name, nome);
     strcpy(novo->category, categoria);
@@ -23,12 +23,12 @@ product* criar_produto(int id, char *nome, char *categoria, double preco, int qu
 
 void imprimir_produto(product *pd) {
     if (pd) {
-        printf("ID: %d\nCATEGORIA: %s\nNOME: %s\nPREÇO: %.3lf\nQUANTIDADE: %d \n", pd->product_id, pd->category, pd->name, pd->price, pd->quantity);
+        printf("ID: %d\nCATEGORIA: %s\nNOME: %s\nPREÇO: %.2lf\nQUANTIDADE: %d\n", pd->product_id, pd->category, pd->name, pd->price, pd->quantity);
     }
 }
 
 int comparar_produto(product* pd1, product* pd2) {
-    return (pd1->product_id - pd2->product_id);
+    return pd1->product_id - pd2->product_id;
 }
 
 void insert(t_avl *estoque) {
